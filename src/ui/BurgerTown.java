@@ -119,7 +119,11 @@ public class BurgerTown {
         }
         
     }
-
+    /**
+     * This method allows the user to write the quantities and the price of these quantities
+     * pre: The Scanner reader must be initialized
+     * pos: Prices and units have been declared
+     */
     public static int calcularTotalPlatosVendidos(){
         int platosVendidos = 0;
         for(int i=0; i<unidades.length; i++){
@@ -128,7 +132,11 @@ public class BurgerTown {
         }
         return platosVendidos;
     }
-
+    /**
+     * Este metodo permite calcular el promedio usando todos los precios del arreglo y diviendolo por la cantidad de precios
+     * pre: Variable nesecitadas inicializadas
+     * pos: Precio Promedio queda declarado
+     */
     public static double calcularPrecioPromedio(){
         double precioPromedio = 0;
         for(int i=0; i<precios.length; i++){
@@ -147,12 +155,14 @@ public class BurgerTown {
     }
 
     public static int consultarPlatosSobreLimite(double limite){
-        double limiteVentas = 0;
-        for(int i=0; i<precios.length; i++){
-         
+        int contador = 0;
+        for (int i = 0; i < precios.length; i++) {
+            double totalVentasProducto = unidades[i] * precios[i];
+            if (totalVentasProducto >= limite){
+                contador++;
+            }
         }
-        return 0;
-
+        return contador;
     }
 
 }
