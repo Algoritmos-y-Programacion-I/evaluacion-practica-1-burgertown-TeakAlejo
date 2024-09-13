@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class BurgerTown {
 
     public static Scanner reader;
+    public static int platos;
     public static double[] precios;
     public static int[] unidades;
 
     public static void main(String[] args) {
-
+        //Scanner reader = new Scanner(System.in);
         inicializarGlobales();
         menu();
     }
@@ -93,38 +94,63 @@ public class BurgerTown {
     public static void establecerCantidadVendida() {
 
         System.out.println("\nDigite el numero de platos diferentes vendidos en el dia ");
-        int platos = reader.nextInt();
+        platos = reader.nextInt();
 
         precios = new double[platos];
         unidades = new int[platos];
 
     }
-
+    
+    /**
+     * This method allows the user to write the quantities and the price of these quantities
+     * pre: The Scanner reader must be initialized
+     * pos: Prices and units have been declared
+     */
     public static void solicitarDatos(){
-
-     
+        for(int i=0; i<precios.length; i++){
+            System.out.println("Dame el precio del plato vendido: ");
+            precios[i] = reader.nextDouble();
+            
+        }
+        
+        for(int i=0; i<unidades.length; i++){
+            System.out.println("Dame la cantidad de cada plato vendido: ");
+            unidades[i] = reader.nextInt();
+        }
+        
     }
 
     public static int calcularTotalPlatosVendidos(){
-
-        return 0;
-
+        int platosVendidos = 0;
+        for(int i=0; i<unidades.length; i++){
+            platosVendidos += unidades[i];
+            
+        }
+        return platosVendidos;
     }
 
     public static double calcularPrecioPromedio(){
-
-        return 0;
-
+        double precioPromedio = 0;
+        for(int i=0; i<precios.length; i++){
+            precioPromedio += precios[i];
+        }
+        precioPromedio /= precios.length;
+        return precioPromedio;
     }
 
     public static double calcularVentasTotales(){
-
-        return 0;
-
+        double dineroRecaudado = 0;
+        for(int i=0; i<precios.length; i++){
+            dineroRecaudado += precios[i] * unidades[i];
+        }
+        return dineroRecaudado;
     }
 
     public static int consultarPlatosSobreLimite(double limite){
-
+        double limiteVentas = 0;
+        for(int i=0; i<precios.length; i++){
+         
+        }
         return 0;
 
     }
